@@ -1,0 +1,16 @@
+---
+layout: layouts/home.njk
+eleventyExcludeFromCollections: true
+eleventyNavigation:
+  key: Kids
+  order: 1
+numberOfLatestproductsToShow: 3
+---
+{% include "../../../../..//_includes/shared/_breadcrumb.njk" %}
+{% set childDirectories = 'content/products/books/coloring/kids' | getChildDirectories %}
+{% include "../../../../../_includes/shared/_nav-directories.njk" %}
+<ul>
+	{%- for entry in collections.kids %}
+	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
+	{%- endfor %}
+</ul>

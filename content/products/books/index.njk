@@ -1,0 +1,15 @@
+---
+layout: layouts/home.njk
+eleventyExcludeFromCollections: true
+eleventyNavigation:
+  key: Books
+  order: 1
+numberOfLatestproductsToShow: 3
+---
+{% set childDirectories = 'content/products/books' | getChildDirectories %}
+{% include "../../../_includes/shared/_nav-directories.njk" %}
+<ul>
+	{% for entry in amazon %}
+	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
+	{% endfor %}
+</ul>

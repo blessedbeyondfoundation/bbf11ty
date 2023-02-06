@@ -1,0 +1,28 @@
+---
+layout: ../_includes/layouts/_layout.njk
+eleventyNavigation:
+  key: Archive
+  order: 2
+---
+{% import "../_includes/shared/_tools.njk" as card %} 
+{% extends "../_includes/layouts/_layout.njk" %}
+
+{% block content %}
+<main class="full-width-site-container">
+
+  <div class="card-grid card-grid-ideas">
+    
+    {{ card.idea(
+      'A Blog', 
+      ['Auth', 'Database', 'Media Storage'],
+      'Static site builders are a perfect match for modern static file hosts, but there is another way you can build a serverless blog as well. You could store and manage the structured data as JSON stored in the cloud and build it as an SPA.',
+    '<a href="https://blog.codepen.io/2018/01/15/build-serverless-blog-codepen/">Here\'s a complete tutorial</a> on building a blog using mostly Firebase. A bonus feature could be having an <a href="https://cloudinary.com/documentation/upload_images">image uploader via Cloudinary</a>, a cloud function for Markdown processing, or <a href="https://github.com/serverless/examples/tree/master/aws-node-fetch-file-and-store-in-s3">storing and fetching files in S3</a> with Serverless.')
+    }}
+</div>
+</main>
+{% endblock %}
+
+<h1>Archive</h1>
+
+{% set postslist = collections.posts %}
+{% include "postslist.njk" %}

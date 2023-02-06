@@ -1,0 +1,8 @@
+<ol reversed class="productlist" style="counter-reset: start-from {{ (productslistCounter or productslist.length) + 1 }}">
+{% for product in productslist | reverse %}
+	<li class="productlist-item{% if product.url == url %} productlist-item-active{% endif %}">
+		<a href="{{ product.url }}" class="productlist-link">{% if product.data.title %}{{ product.data.title }}{% else %}<code>{{ product.url }}</code>{% endif %}</a>
+		<time class="productlist-date" datetime="{{ product.date | htmlDateString }}">{{ product.date | readableDate("LLLL yyyy") }}</time>
+	</li>
+{% endfor %}
+</ol>

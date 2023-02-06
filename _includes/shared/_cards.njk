@@ -1,0 +1,26 @@
+{% 
+  macro card(
+    title, 
+    author,
+    description,
+    url,
+    tags) 
+%}
+
+<div class="card" data-tags="{% for tag in tags %}{{ tag }} {% endfor %}">
+  <h3>
+    <a href="{{ url }}">
+    {{ title }}
+    </a>
+  </h3>
+
+  <div class="resource-author">
+    By {{ author }}
+  </div>
+
+  <p class="resource-description">
+    {{ description | safe }}
+  </p>
+</div>
+
+{% endmacro %}

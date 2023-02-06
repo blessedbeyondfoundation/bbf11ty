@@ -1,0 +1,10 @@
+---
+layout: layouts/home.njk
+eleventyNavigation:
+  key: ProductsDemo
+  order: 2
+---
+<h1>Products</h1>
+
+{% set productslist = collections.products %}
+{% include "productslist.njk" %}

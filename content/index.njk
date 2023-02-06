@@ -1,0 +1,26 @@
+{% import "../_includes/shared/_tools.njk" as card %} 
+{% extends "../_includes/layouts/_layout.njk" %}
+
+{% block content %}
+<main class="full-width-site-container">
+  
+  <div class="row">
+  
+    {% for item in amazon.books %}
+    {{ card.book(
+      item.description,
+      item.format,
+      item.image,
+      item.link,
+      item.price,
+      item.series,
+      item.subtitle,
+      item.tags,
+      item.title)
+    }}
+	  {% endfor %}
+  </div>
+  </div>
+  
+</main>
+{% endblock %}

@@ -1,0 +1,37 @@
+---
+layout: ../_includes/layouts/_layout.njk
+eleventyNavigation:
+  key: Products
+  order: 1
+numberOfLatestproductsToShow: 3
+---
+
+{% set childDirectories = 'content/products/' | getChildDirectories %}
+{% include "../../_includes/shared/_nav-directories.njk" %}
+
+{% block content %}
+<main class="full-width-site-container">
+<h1>Products</h1>
+{% set productsCount = collections.products | length %}
+{% set latestproductsCount = productsCount | min(numberOfLatestproductsToShow) %}
+<h1>Latest {{ latestproductsCount }} product{% if latestproductsCount != 1 %}s{% endif %}</h1>
+
+{% set productslist = collections.products | head(-1 * numberOfLatestproductsToShow) %}
+{% set productslistCounter = productsCount %}
+{% include "productslist.njk" %}
+
+{% set moreproducts = productsCount - numberOfLatestproductsToShow %}
+{% if moreproducts > 0 %}
+<p>{{ moreproducts }} more product{% if moreproducts != 1 %}s{% endif %} can be found in <a href="/blog/">the archive</a>.</p>
+{% endif %}
+
+{# List every content page in the project #}
+{#
+<ul>
+	{%- for entry in collections.all %}
+	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
+	{%- endfor %}
+</ul>
+#}
+</main>
+{% endblock %}

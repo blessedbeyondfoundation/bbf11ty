@@ -1,0 +1,5 @@
+<ul>
+	{% for directory in childDirectories %}
+	<li><a href="{{ directory }}">{{ directory | titleCase }}</a></li>
+	{% endfor %}
+</ul>

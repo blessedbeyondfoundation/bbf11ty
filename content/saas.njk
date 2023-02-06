@@ -1,0 +1,19 @@
+{% import "../_includes/shared/_tools.njk" as card %} 
+{% extends "../_includes/layouts/_layout.njk" %}
+
+{% block content %}
+<main class="full-width-site-container">
+  
+  <div class="card-grid card-grid-ideas">
+    
+    {{ card.saas(
+      'AppBlocks', 
+      ['Apps', 'Products', 'Users'],
+      'Business as a Service.',
+    '<a href="https://appblocks.net/">AppBlock\'s is a revolutionary new, complete and exciting Business as a Service</a>.')
+    }}
+    
+  </div>
+  
+</main>
+{% endblock %}
