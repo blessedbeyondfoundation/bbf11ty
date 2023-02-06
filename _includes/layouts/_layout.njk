@@ -1,28 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title or metadata.title }}</title>
-  <link href="https://fonts.googleapis.com/css?family=Nunito:900" rel="stylesheet">
-  <link rel="stylesheet" href="/_assets/css/style.processed.css?v3">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-91383659-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-91383659-1');
-  </script>
-</head>
-<body class="{{ body_class }}">
-
-  {% include "../shared/_header.njk" %}
-  
-  {% block content %}
-  {% endblock %}
-  
-  {% include "../shared/_footer.njk" %}
-  <script src="/_assets/js/index.js"></script>
-</body>
-</html>
+{% include "../shared/_header.njk" %}
+{% block content %}
+{% endblock %}
+{% include "../shared/_footer.njk" %}

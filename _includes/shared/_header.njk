@@ -1,13 +1,13 @@
 <!doctype html>
-<html lang="{{ metadata.language }}">
+<html lang="{{ metadata.language or "en" }}">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>{{ title or metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
+		<meta name="description" content="{{ description or metadata.description or "Blessed Beyond Foundation - Blessing others, since we have been Blessed Beyond"}}">
 		{#- Atom and JSON feeds included by default #}
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
+		{#-<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}"> #}
+		{#-<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}"> #}
 		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
 		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
 {#-
@@ -22,7 +22,10 @@
 
 		2. Inlined (fastest site performance in production)
 #}
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<style>
+		  <link href="https://fonts.googleapis.com/css?family=Nunito:900" rel="stylesheet">
+  		{% include "../../_assets/css/style.processed.css" %}
 		{% include "public/css/index.css" %}
 		{% include "public/css/message-box.css" %}
 		{% include "node_modules/prismjs/themes/prism-okaidia.css" %}
@@ -36,8 +39,9 @@
 				e.g. Vite https://www.11ty.dev/docs/server-vite/
 				Or search for additional community plugins for esbuild, rollup, webpack, etc.
 #}
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-91383659-1"></script>
 	</head>
-	<body>
+	<body class="{{ body_class }}">
 		<a href="#skip" class="visually-hidden">Skip to main content</a>
 		<header>
 			<a href="/" class="home-link">{{ metadata.title }}</a>
