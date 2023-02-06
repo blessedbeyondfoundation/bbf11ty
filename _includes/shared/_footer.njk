@@ -2,6 +2,11 @@
 		<footer></footer>
 		<!-- Current page: {{ page.url | htmlBaseUrl }} -->
 		<script src="/_assets/js/index.js"></script>
-		<script async src="../../_assets/js/gtag.js"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+			gtag('config', 'UA-91383659-1');
+		</script>
 	</body>
 </html>
