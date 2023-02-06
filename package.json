@@ -11,8 +11,7 @@
 		"build": "run-s prod:*",
 		"dev:eleventy": "eleventy --serve",
 		"dev:parcel": "parcel watch ./_assets/js/main.js --out-dir ./_site/assets",
-		"prod:eleventy": "eleventy",
-		"prod:parcel": "parcel build ./_assets/js/main.js --out-dir ./_site/assets"
+		"prod:eleventy": "eleventy"
 	},
 	"repository": {
 		"type": "git",
