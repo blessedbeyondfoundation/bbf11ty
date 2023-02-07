@@ -1,7 +1,7 @@
+const cheerio = require("cheerio");
 const fetch = require("node-fetch");
 const fs = require("fs");
-const cheerio = require("cheerio");
-const request = require('request');
+const request = require("request");
 module.exports = async function () {
   const url = 'https://www.amazon.com/s?i=stripbooks&rh=p_27%3ABlessed+Beyond+Foundation&s=review-count-rank&qid=1675694725&text=Blessed+Beyond+Foundation&ref=sr_st_review-count-rank&ds=v1%3Af3NR3vKuhKOapwA0%2BCiPnpgkm5O0dGNcopFxUZlwUGo';
   const books = [];
@@ -31,7 +31,7 @@ module.exports = async function () {
           }
         }
         title = title + "Book";
-        console.log('title:' + title);
+        // console.log('title:' + title);
         let link = titleElement.attr('href');
         if (!link.startsWith('http')) {
             link = `https://www.amazon.com${link}`;
@@ -45,10 +45,18 @@ module.exports = async function () {
         const imageUrl = imageElement.length ? imageElement.attr('src') : '';
         const image = `./_assets/images/${title.replace(/\s+/g, '-').toLowerCase()}.png`;
 
-        request(imageUrl).pipe(fs.createWriteStream(image)).on('close', () => {
-          console.log(`Image saved: ${image}`);
-        });
-
+        if (imageUrl) {
+          //console.log('imageUrl:' + imageUrl);
+          request(imageUrl).pipe(fs.createWriteStream(image)).on('close', () => {
+            console.log(`Image saved: ${image}`);
+          });
+          // fetch(imageUrl)
+          //   .then((res) => res.buffer())
+          //   .then((buffer) => sharp(buffer)
+          //     .resize(336, 436)
+          //     .toFile(image))
+          //   .catch((error) => console.error(error));
+        }
         books.push({ description, format, image, link, price, series, subtitle, tags: ["books", "coloring-books", "products"], title });
       }
     });
